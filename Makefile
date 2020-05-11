@@ -42,7 +42,7 @@ install: bin/lid.bin $(KENLM) $(SPM_TRAIN)
 		echo "Please create/simlink a 'data' directory.";\
 	fi
 	@if ! python -c "from cc_net import __main__" 2> /dev/null; then\
-		pip install . ;\
+		pip install . --user;\
 	fi
 	echo " --> All dependencies looks good !"
 
