@@ -24,7 +24,7 @@ setup(
         "Development Status :: 4 - Beta",
         "Programming Language :: Python :: 3.7",
     ],
-    python_requires=">=3.6",
+    python_requires=">=3.7",
     install_requires=[
         "beautifulsoup4>=4.7.1",
         "pandas>=0.23.4",
