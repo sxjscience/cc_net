@@ -111,17 +111,17 @@ data/cirrus/sp/%.opening.txt: data/cirrus/gz/%.json.gz data/lm_sp/%.sp.model
 	$(SPM_ENCODE) \
 		--model=$(word 2,$^) \
 		--output_format=piece \
-			< <(python -m ccnet.get_wiki_cirrus opening --file $< --n_docs $(NDOC_FOR_LM)) \
+			< <(python -m cc_net.get_wiki_cirrus opening --file $< --n_docs $(NDOC_FOR_LM)) \
 			> $@
 
 data/cirrus/txt/%.opening.txt: data/cirrus/gz/%.json.gz
-	python -m ccnet.get_wiki_cirrus opening \
+	python -m cc_net.get_wiki_cirrus opening \
 		--n_docs $(NDOC_FOR_LM) \
 		--file $< --output $@
 
 data/cirrus/gz/%.json.gz:
 	mkdir $(@D)
-	python -m ccnet.get_wiki_cirrus dl --lang $(call get_lang,$(@F)) --output_dir $(@D)
+	python -m cc_net.get_wiki_cirrus dl --lang $(call get_lang,$(@F)) --output_dir $(@D)
 
 clean:
 	# Remove intemediary files, dataset, third_party sources
